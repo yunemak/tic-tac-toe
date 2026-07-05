@@ -1,13 +1,13 @@
-let Gameboard = createGameboard();
+playGame();
 
-const user1 = createPlayer("Yunus", "X");
-const user2 = createPlayer("Computer", "Y");
-
-function playGame(gameBoard, user1, user2) {
-	let mark
-}
 
 // Functions
+function playGame() {
+	const user1 = createPlayer("Yunus", "X");
+	const user2 = createPlayer("Computer", "O");
+	let Gameboard = createGameboard(user1, user2);
+}
+
 function createPlayer(name, mark) {
 	let score = 0;
 
@@ -18,7 +18,7 @@ function createPlayer(name, mark) {
 	return { name, mark, getScore, increaseScore };
 }
 
-function createGameboard() {
+function createGameboard(user1, user2) {
 	let board = [
 		"", "", "",
 		"", "", "",
@@ -32,10 +32,19 @@ function createGameboard() {
 		});
 	});
 
+	let markOrder = 0;
+
 	const putMark = (pos, mark) => {
 		if (board[pos] != "")
 			return (1);
-		board[pos] = mark;
+		if (markOrder === 0) {
+			board[pos] = user1.mark;
+			markOrder = 1;
+		}
+		else {
+			board[pos] = user2.mark;
+			markOrder = 0;
+		}
 		renderBoard();
 		let result = checkWin();
 		if (result === "X")
