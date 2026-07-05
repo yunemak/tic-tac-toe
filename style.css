@@ -29,8 +29,10 @@ body {
 }
 
 .game > div {
+	color: white;
 	width: 200px;
 	height: 200px;
+	cursor: pointer;
 }
 
 /* mark borders */

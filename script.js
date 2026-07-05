@@ -1,10 +1,10 @@
+let gameBoardDivs = document.querySelectorAll(".game > div");
 let Gameboard = createGameboard();
 
 const user1 = createPlayer("Yunus", "X");
 const user2 = createPlayer("Computer", "Y");
 
-
-
+gameBoardDivs[0].addEventListener("click", () => {console.log("deneme;")})
 
 // Functions
 function createPlayer(name, mark) {
