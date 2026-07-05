@@ -1,13 +1,19 @@
 const resultCard = document.querySelector(".result-card");
+const playAgainBtn = document.querySelector(".play-again");
 
 playGame();
 
+playAgainBtn.addEventListener("click", () => {
+	playGame();
+	resultCard.style.display = "none";
+});
 
 // Functions
 function playGame() {
 	const user1 = createPlayer("Yunus", "X");
 	const user2 = createPlayer("Computer", "O");
 	let Gameboard = createGameboard(user1, user2);
+	Gameboard.renderBoard();
 }
 
 function createPlayer(name, mark) {
@@ -94,5 +100,5 @@ function createGameboard(user1, user2) {
 			gameBoardDivs[i].textContent = board[i];
 		}
 	}
-	return {putMark, printBoard};
+	return {putMark, printBoard, renderBoard};
 }
