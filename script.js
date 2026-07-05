@@ -1,11 +1,13 @@
 const resultCard = document.querySelector(".result-card");
 const playAgainBtn = document.querySelector(".play-again");
+const mainContainer = document.querySelector(".main-container");
 
 playGame();
 
 playAgainBtn.addEventListener("click", () => {
 	playGame();
 	resultCard.style.display = "none";
+	mainContainer.style.filter = "none";
 });
 
 // Functions
@@ -58,6 +60,7 @@ function createGameboard(user1, user2) {
 		winner = checkWin();
 		if (winner !== "") {
 			console.log(`${winner} wins!`);
+			mainContainer.style.filter = "blur(5px)";
 			resultCard.style.display = "flex";
 		}
 	};
