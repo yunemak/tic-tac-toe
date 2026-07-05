@@ -1,15 +1,28 @@
-const resultCard = document.querySelector(".result-card");
-const playAgainBtn = document.querySelector(".play-again");
+// Start elements
 const mainMenu = document.querySelector(".main-menu");
 const playBtn = document.querySelector(".play");
 const player1Input = document.querySelector("#player1");
 const player2Input = document.querySelector("#player2");
+
+// End elements
+const resultCard = document.querySelector(".result-card");
+const playAgainBtn = document.querySelector(".play-again");
+
+// Other elements
 const mainContainer = document.querySelector(".main-container");
+
+// Result Board elements
+const player1Name = document.querySelector(".player1-name");
+const player2Name = document.querySelector(".player2-name");
+const player1Score = document.querySelector(".player1-score");
+const player2Score = document.querySelector(".player2-score");
 
 playBtn.addEventListener("click", () => {
 	playGame(player1Input.value, player2Input.value);
 	mainMenu.style.display = "none";
-})
+	player1Name.textContent = player1Input.value;
+	player2Name.textContent = player2Input.value;
+});
 
 
 playAgainBtn.addEventListener("click", () => {
