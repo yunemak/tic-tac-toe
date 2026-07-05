@@ -29,6 +29,8 @@ body {
 }
 
 .game > div {
+	font-size: 150px;
+	text-align: center;
 	color: white;
 	width: 200px;
 	height: 200px;
