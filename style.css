@@ -19,17 +19,16 @@ body {
 	display: flex;
 }
 
-.mark-container {
-	width: 100%;
-	height: 100%;
-	border: 20px solid black;
+.game {
+	padding: 20px;
+	border: 5px solid white;
 	/* Layout inside */
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
 }
 
-.mark-container > div {
+.game > div {
 	width: 200px;
 	height: 200px;
 }
