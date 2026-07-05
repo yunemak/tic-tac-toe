@@ -10,6 +10,27 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 50px;
+}
+
+.result-board {
+	height: 400px;
+	width: 300px;
+	border: 5px solid white;
+	/* Layout inside */
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.result-board > div {
+	flex: 1;
+	color: white;
+	border: 1px solid white;
+}
+
+.result-board h1 {
+	border-bottom: 1px solid white;
 }
 
 .game {
