@@ -1,8 +1,16 @@
 const resultCard = document.querySelector(".result-card");
 const playAgainBtn = document.querySelector(".play-again");
+const mainMenu = document.querySelector(".main-menu");
+const playBtn = document.querySelector(".play");
+const player1Input = document.querySelector("#player1");
+const player2Input = document.querySelector("#player2");
 const mainContainer = document.querySelector(".main-container");
 
-playGame();
+playBtn.addEventListener("click", () => {
+	playGame(player1Input.value, player2Input.value);
+	mainMenu.style.display = "none";
+})
+
 
 playAgainBtn.addEventListener("click", () => {
 	playGame();
@@ -11,9 +19,9 @@ playAgainBtn.addEventListener("click", () => {
 });
 
 // Functions
-function playGame() {
-	const user1 = createPlayer("Yunus", "X");
-	const user2 = createPlayer("Computer", "O");
+function playGame(player1Name, player2Name) {
+	const user1 = createPlayer(player1Name, "X");
+	const user2 = createPlayer(player2Name, "O");
 	let Gameboard = createGameboard(user1, user2);
 	Gameboard.renderBoard();
 }
