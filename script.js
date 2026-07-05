@@ -1,3 +1,5 @@
+const resultCard = document.querySelector(".result-card");
+
 playGame();
 
 
@@ -48,10 +50,10 @@ function createGameboard(user1, user2) {
 		}
 		renderBoard();
 		winner = checkWin();
-		if (winner === "X")
-			console.log("X wins!");
-		if (winner === "O")
-			console.log("O wins!");
+		if (winner !== "") {
+			console.log(`${winner} wins!`);
+			resultCard.style.display = "flex";
+		}
 	};
 
 	const printBoard = () => {
