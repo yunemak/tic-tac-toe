@@ -1,14 +1,11 @@
-let gameBoardDivs = document.querySelectorAll(".game > div");
 let Gameboard = createGameboard();
 
 const user1 = createPlayer("Yunus", "X");
 const user2 = createPlayer("Computer", "Y");
 
-gameBoardDivs.forEach( function (div, pos) {
-	div.addEventListener("click", () => {
-		Gameboard.putMark(pos, "X");
-	})
-});
+function playGame(gameBoard, user1, user2) {
+	let mark
+}
 
 // Functions
 function createPlayer(name, mark) {
@@ -27,6 +24,13 @@ function createGameboard() {
 		"", "", "",
 		"", "", ""
 	];
+
+	let gameBoardDivs = document.querySelectorAll(".game > div");
+	gameBoardDivs.forEach( function (div, pos) {
+		div.addEventListener("click", () => {
+			putMark(pos, "X");
+		});
+	});
 
 	const putMark = (pos, mark) => {
 		if (board[pos] != "")
