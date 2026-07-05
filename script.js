@@ -33,9 +33,10 @@ function createGameboard(user1, user2) {
 	});
 
 	let markOrder = 0;
+	let winner = "";
 
 	const putMark = (pos, mark) => {
-		if (board[pos] != "")
+		if (board[pos] !== "" || winner !== "")
 			return (1);
 		if (markOrder === 0) {
 			board[pos] = user1.mark;
@@ -46,10 +47,10 @@ function createGameboard(user1, user2) {
 			markOrder = 0;
 		}
 		renderBoard();
-		let result = checkWin();
-		if (result === "X")
+		winner = checkWin();
+		if (winner === "X")
 			console.log("X wins!");
-		if (result === "O")
+		if (winner === "O")
 			console.log("O wins!");
 	};
 
