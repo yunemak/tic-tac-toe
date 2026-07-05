@@ -4,8 +4,11 @@ let Gameboard = createGameboard();
 const user1 = createPlayer("Yunus", "X");
 const user2 = createPlayer("Computer", "Y");
 
-
-
+gameBoardDivs.forEach( function (div, pos) {
+	div.addEventListener("click", () => {
+		Gameboard.putMark(pos, "X");
+	})
+});
 
 // Functions
 function createPlayer(name, mark) {
@@ -25,18 +28,16 @@ function createGameboard() {
 		"", "", ""
 	];
 
-	const renderBoard = () => {
-		for (let i = 0; i < 9; i++) {
-			gameBoardDivs[i].textContent = board[i];
-		}
-	}
-
 	const putMark = (pos, mark) => {
 		if (board[pos] != "")
 			return (1);
 		board[pos] = mark;
 		renderBoard();
-		return (0);
+		let result = checkWin();
+		if (result === "X")
+			console.log("X wins!");
+		if (result === "O")
+			console.log("O wins!");
 	};
 
 	const printBoard = () => {
@@ -72,6 +73,10 @@ function createGameboard() {
 		return ("");
 	}
 
-	
-	return {putMark, printBoard, checkWin};
+	const renderBoard = () => {
+		for (let i = 0; i < 9; i++) {
+			gameBoardDivs[i].textContent = board[i];
+		}
+	}
+	return {putMark, printBoard};
 }
